@@ -1,8 +1,8 @@
-var dataPromise = d3.csv("Computer Science Flooding By Climate change.csv")
-dataPromise.then(function(dataPromise){
+var promise = d3.csv("FloodingByClimateChange.csv")
+    promise.then(function(data){
     
-    console.log("dataPromise", dataPromise);
-    console.log(dataPromise)
+    console.log("data", data);
+    console.log(data)
 },
     function(err){
     console.log("fail", err)
