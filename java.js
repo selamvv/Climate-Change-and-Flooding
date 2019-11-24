@@ -1,4 +1,4 @@
-var promise = d3.csv("FloodingByClimateChange.csv")
+var promise = d3.csv("FinalProject/FloodingByClimateChange.csv")
     promise.then(function(data){
     
     console.log("data", data);
