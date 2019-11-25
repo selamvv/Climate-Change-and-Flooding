@@ -4,13 +4,42 @@
         <head>
               <h1>Final Project: Flood increase due to Climate Change</h1>
 
-            <script src="https://d3js.org/d3.v4.js"></script>
             <script src="https://unpkg.com/d3-horizon-chart"></script>
+    <style>
+
+svg {
+    display: block;
+    margin: 0 auto;
+}
+
+.axis .domain {
+    display: none;
+}
+
+.axis--x text {
+    fill: #999;
+}
+
+.axis--x line {
+    stroke: #aaa;
+}
+
+.axis--activity .tick line {
+    display: none;
+}
+
+.axis--activity text {
+    font-size: 12px;
+    fill: #777;
+}
+
+</style>
+            
         </head>
 
         <body>
             <svg></svg>
         </body>
-
+        <script src="https://d3js.org/d3.v5.js"></script>
         <script src="java.js"></script>
     </html>
