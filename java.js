@@ -30,7 +30,7 @@ var yTempScale = d3.scaleLinear()
                 .range([(.25)*height,0])
 var cScale = d3.scaleOrdinal(d3.schemeTableau10)
 var xAxis = d3.axisBottom(xScale)
-var yAxis = d3.axisLeft(yScale)
+var yAxis = d3.axisLeft(yTempScale)
     
    d3.select(".axis")
     .append("g")
