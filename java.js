@@ -1,5 +1,6 @@
 var promise = d3.csv("FloodingByClimateChange.csv")
     promise.then(function(data){
+    
     console.log("data", data);
     setup(data)
         //drawGraph() function(d){return{data: parseFloat(d)}; },
@@ -23,14 +24,19 @@ var width = screen.width - margins.left - margins.right;
 var height = screen.height - margins.top - margins.bottom;
     
 var xScale = d3.scaleLinear()
-                .domain([0,21])
-                .range([0,width])
+                .domain([1993,2014])
+                .range([0,width]);
+
 var yTempScale = d3.scaleLinear()
                 .domain([0,1])
                 .range([(.25)*height,0])
+var ySeaRiseScale = d3.scaleLinear()
+                .domain([1,100])
+                .range([(.25)*height,0])
+
 var cScale = d3.scaleOrdinal(d3.schemeTableau10)
 var xAxis = d3.axisBottom(xScale)
-var yAxis = d3.axisLeft(yTempScale)
+var yAxis = d3.axisLeft(yTempScale, ySeaRiseScale)
     
    d3.select(".axis")
     .append("g")
@@ -44,7 +50,7 @@ var yAxis = d3.axisLeft(yTempScale)
     .attr("transform", "translate(35,"+margins.top+")")
     .call(yAxis)
     
-   drawGraph(data, xScale, yTempScale, cScale);
+   drawGraph(data, xScale, yTempScale, ySeaRiseScale, cScale);
 }
    
    /*
@@ -60,31 +66,37 @@ var yAxis = d3.axisLeft(yTempScale)
                 } */
    
     
-var drawGraph= function(data, xScale, yTempScale, cScale){
+/*var drawGraph= function(data, xScale, yTempScale, cScale){
     var graph= d3.select("#graph")
                 .selectAll("g")
                 .data(data)
                 .enter()
                 .append("g")
-                .attr("fill", "none")
-                .attr("stroke", function(arr){
-                    console.log("arr", arr.picture)
-                    return cScale(arr.picture);
-                })
-                
-
-var lineGenerator = d3.line()
+             //   .attr("fill", "none")
+               // .attr("stroke", function(arr){
+                 //   console.log("arr", arr)
+                  //  return cScale(arr.picture);
+                }
+                */
+//This is the accessor function
+var drawGraph= function(data, xScale, yTempScale, ySeaRiseScale, cScale){
+    var lineGenerator = d3.line()
         .x(function(data, index){
-        return xScale(index)})
+        return xScale(data.Year)})
         .y(function(data) {
-		return yTempScale(data)})
+            console.log(data)
+		return yTempScale(data["GCAG (Temp)"], )
+        ySeaRiseScale(data["GMSL (Sea Rise)"])})
         .curve(d3.curveCardinal)
 
 var line =lineGenerator(data);
-    d3.select("g")
-       
-        .datum(function(obj){return (obj)})
-        .append('path')
-        .attr("d", line)
-	
+    d3.select("#graph")
+      .append("path")
+      .datum(data) 
+      .attr("d", line)
+      .attr("fill", "none")
+      .attr("stroke", function(arr){
+         console.log("arr", arr)
+        return cScale(arr.picture)
+    })
 }
