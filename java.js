@@ -1,8 +1,8 @@
 var promise = d3.csv("FloodingByClimateChange.csv")
     promise.then(function(data){
     console.log("data", data);
-    setup()
-        //drawGraph()
+    setup(data)
+        //drawGraph() function(d){return{data: parseFloat(d)}; },
 },
     function(err){
     console.log("fail", err)
@@ -30,7 +30,7 @@ var yTempScale = d3.scaleLinear()
                 .range([(.25)*height,0])
 var cScale = d3.scaleOrdinal(d3.schemeTableau10)
 var xAxis = d3.axisBottom(xScale)
-var yAxis = d3.axisLeft(yScale)
+var yAxis = d3.axisLeft(yTempScale)
     
    d3.select(".axis")
     .append("g")
@@ -44,15 +44,8 @@ var yAxis = d3.axisLeft(yScale)
     .attr("transform", "translate(35,"+margins.top+")")
     .call(yAxis)
     
-   drawArray(data, xScale, yScale, cScale);
-   
-   /*var yscale = d3.select("svg")
-                .data(data)
-                .enter()
-                .append("g")
-                .attr("transform",function(d,i) {
-                    return "translate(0," + i * 20 + ")";
-                    });/*
+   drawGraph(data, xScale, yTempScale, cScale);
+}
    
    /*
     var ySeaScale = d3.scaleLinear()
@@ -67,7 +60,7 @@ var yAxis = d3.axisLeft(yScale)
                 } */
    
     
-var drawGraph= function(data, xScale, yScale, cScale){
+var drawGraph= function(data, xScale, yTempScale, cScale){
     var graph= d3.select("#graph")
                 .selectAll("g")
                 .data(data)
@@ -78,17 +71,20 @@ var drawGraph= function(data, xScale, yScale, cScale){
                     console.log("arr", arr.picture)
                     return cScale(arr.picture);
                 })
-                }
+                
 
 var lineGenerator = d3.line()
         .x(function(data, index){
-        return xScale(index)
-    })
+        return xScale(index)})
         .y(function(data) {
-		return yScale(data)})
+		return yTempScale(data)})
         .curve(d3.curveCardinal)
-  
-        arrays.datum(function(obj){return (obj)})
+
+var line =lineGenerator(data);
+    d3.select("g")
+       
+        .datum(function(obj){return (obj)})
         .append('path')
-        .attr("d", lineGenerator)
-	}
+        .attr("d", line)
+	
+}
