@@ -1,0 +1,44 @@
+body{
+  text-align: center;  
+  padding: 10px 10px 20px 10px brown;
+  
+  background-image: url("https://cdn.vox-cdn.com/thumbor/GDzAEioSBIIbEvZWVU9vBDJCCCM=/0x0:3000x2000/920x613/filters:focal(1260x760:1740x1240):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/56415683/840248942.0.jpg");
+  background-image:  opacity: 0.5;
+    background-color: blue;
+  background-attachment: fixed;
+  align-content: 80%;
+    
+ 
+}
+  
+svg{
+    padding: 10px 10px 10px 10px;
+    width: 300px;
+    height: 300px;
+    border: 8px solid #BFBFBF;
+    border-style:ridge;
+    background-color: antiquewhite
+    }
+
+h1{
+  padding: 1px 1px 1px 1px;
+  border: 20px double #BFBFBF;
+background: lightgrey;
+    font-size: 40px;
+    font-style: oblique;
+   
+    }
+head{
+    
+}
+p{
+    padding: 1px 1px 1px 1px;
+    margin-right: 10px;
+    width: 1000px;
+    height: 30px;
+    border-style:ridge;
+   clear align-content: center; 
+  
+  
+    
+}
