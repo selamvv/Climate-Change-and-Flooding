@@ -13,13 +13,16 @@ body{
   
 svg{
     padding: 10px 10px 10px 10px;
-    width: 300px;
-    height: 300px;
     border: 8px solid #BFBFBF;
     border-style:ridge;
     background-color: antiquewhite
     }
-
+#yAxisLeft{
+    color: forestgreen
+}
+yAxisRight{
+    color: blue
+}
 h1{
   padding: 1px 1px 1px 1px;
   border: 20px double #BFBFBF;
@@ -27,18 +30,4 @@ background: lightgrey;
     font-size: 40px;
     font-style: oblique;
    
-    }
-head{
-    
-}
-p{
-    padding: 1px 1px 1px 1px;
-    margin-right: 10px;
-    width: 1000px;
-    height: 30px;
-    border-style:ridge;
-   clear align-content: center; 
-  
-  
-    
 }
