@@ -1,33 +1,47 @@
 body{
   text-align: center;  
-  padding: 10px 10px 20px 10px brown;
+  padding: 10px 10px 10px 10px brown;
   
   background-image: url("https://cdn.vox-cdn.com/thumbor/GDzAEioSBIIbEvZWVU9vBDJCCCM=/0x0:3000x2000/920x613/filters:focal(1260x760:1740x1240):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/56415683/840248942.0.jpg");
   background-image:  opacity: 0.5;
-    background-color: blue;
   background-attachment: fixed;
   align-content: 80%;
-    
+  background-repeat: no-repeat;
+  background-size: cover;
  
+  background-blend-mode: lighten;  
+ 
+} 
+#svg{
+   display:block;
+    margin-right: 80px;
+    float:left;
 }
-  
 svg{
+      float:left;
+   margin-right: 80px;
     padding: 10px 10px 10px 10px;
-    border: 8px solid #BFBFBF;
-    border-style:ridge;
-    background-color: antiquewhite
+    border: 9px solid pink;
+    border-style:double;
+    background-color: floralwhite
+    
     }
-#yAxisLeft{
-    color: forestgreen
+#yAxisRight1{
+    color: green
 }
-yAxisRight{
+#yAxisLeft{
+    color: red
+}
+
+#yAxisRight{
     color: blue
 }
 h1{
   padding: 1px 1px 1px 1px;
-  border: 20px double #BFBFBF;
+  border: 20px double blue;
 background: lightgrey;
     font-size: 40px;
     font-style: oblique;
-   
+    background-image: linear-gradient(yellow, green);
+    background-blend-mode: lighten;
 }
