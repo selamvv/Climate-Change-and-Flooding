@@ -31,7 +31,9 @@ var height = screen.height - margins.top - margins.bottom;
   .attr("transform","translate(" + (width/2) + " ," + 
     (height + margins.top + 50) + ")")
   .style("text-anchor", "middle")
+  //.style("font-size", "34px")
   .text("Year");
+  
     
     d3.select("svg")
   .append("text")             
@@ -101,20 +103,21 @@ var yAxisRight1 = d3.axisRight().scale(y2)
 
 //Append group and insert axis 
 
-d3.select("#graph")
+/*d3.select("#graph")
    .append("g")
    .classed("axis",true);
-    
+   */
 d3.select("#graph")
     .append("g")
     .attr("id","xAxis")
-    .attr("transform", "translate("+margins.left+","+(margins.top+height)+")")
+    .attr("transform", "translate(-.5"+margins.left+","+(margins.top+height)+")")
+    .style("font-size", "15px")
     .call(xAxis)
     
 d3.select("#graph")
     .append("g")
     .attr("id","yAxisLeft")
-    .attr("transform", "translate("+margins.top+")")
+    .attr("transform", "translate(-.5"+margins.top+")")
     .call(yAxisLeft) 
     .attr("stroke", "red")
     
@@ -208,7 +211,7 @@ var drawArray= function(dataArray,xScale,y0, y1, y2, cScale){
                     return cScale(arr.Year);
                 })
          .attr("stroke", "lightgreen")
-    
+        .attr("stroke-width",5)
     d3.select("#graph")
         .append('path') 
         .datum(dataArray)
@@ -218,7 +221,7 @@ var drawArray= function(dataArray,xScale,y0, y1, y2, cScale){
              return cScale(arr.Year);
                })
         .attr("stroke", "blue")
-    
+        .attr("stroke-width",5)
      d3.select("#graph")
         .append('path') 
         .datum(dataArray)
@@ -228,7 +231,7 @@ var drawArray= function(dataArray,xScale,y0, y1, y2, cScale){
                     return cScale(arr.Year);
                 })
         .attr("stroke", "green")
-    
+         .attr("stroke-width",5)
     d3.select("#graph")
         .append('path') 
         .datum(dataArray)
@@ -238,4 +241,5 @@ var drawArray= function(dataArray,xScale,y0, y1, y2, cScale){
                     return cScale(arr.Year);
                 })
          .attr("stroke", "red")
+        .attr("stroke-width",5)
 }

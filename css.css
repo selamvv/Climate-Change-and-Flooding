@@ -2,8 +2,8 @@ body{
   text-align: center;  
   padding: 10px 10px 10px 10px brown;
   
-  background-image: url("https://cdn.vox-cdn.com/thumbor/GDzAEioSBIIbEvZWVU9vBDJCCCM=/0x0:3000x2000/920x613/filters:focal(1260x760:1740x1240):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/56415683/840248942.0.jpg");
-  background-image:  opacity: 0.5;
+  background-image: url("https://www.abc.net.au/news/image/2455074-3x2-940x627.jpg");
+  background-image:  opacity: 15;
   background-attachment: fixed;
   align-content: 80%;
   background-repeat: no-repeat;
@@ -12,18 +12,24 @@ body{
   background-blend-mode: lighten;  
  
 } 
+yAxisLeft{
+  -webkit-transition: fill-opacity 300ms linear;
+  font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Helvetica, "Helvetica Neue", Helvetica, sans-serif;
+font-size: 25px;}  
+}
 #svg{
    display:block;
     margin-right: 80px;
     float:left;
 }
 svg{
-      float:left;
+    
    margin-right: 80px;
     padding: 10px 10px 10px 10px;
-    border: 9px solid pink;
+    border: 9px solid;
     border-style:double;
-    background-color: floralwhite
+    background: rgba(76, 175, 80, 0.1)
+    
     
     }
 #yAxisRight1{
@@ -40,8 +46,7 @@ h1{
   padding: 1px 1px 1px 1px;
   border: 20px double blue;
 background: lightgrey;
-    font-size: 40px;
+    font-size: 50;
     font-style: oblique;
-    background-image: linear-gradient(yellow, green);
-    background-blend-mode: lighten;
+
 }
