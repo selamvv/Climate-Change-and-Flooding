@@ -11,20 +11,15 @@ body{
  
   background-blend-mode: lighten;  
  
-} 
-yAxisLeft{
-  -webkit-transition: fill-opacity 300ms linear;
-  font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Helvetica, "Helvetica Neue", Helvetica, sans-serif;
-font-size: 25px;}  
 }
 #svg{
-   display:block;
-    margin-right: 80px;
-    float:left;
+   display: inline-block;
+}
+  
+
 }
 svg{
     
-   margin-right: 80px;
     padding: 10px 10px 10px 10px;
     border: 9px solid;
     border-style:double;
@@ -43,8 +38,9 @@ svg{
     color: blue
 }
 h1{
+    width:1000px;
   padding: 1px 1px 1px 1px;
-  border: 20px double blue;
+  border: 10px double black;
 background: lightgrey;
     font-size: 50;
     font-style: oblique;

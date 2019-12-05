@@ -62,14 +62,7 @@ var height = screen.height - margins.top - margins.bottom;
   .style("text-anchor", "middle")
   .text("Sea Rise (inches)"); 
     
-        d3.select("svg")
-  .append("text")             
-  .attr("transform","translate(1355, 140) rotate(0)")
-  .attr("yAxisRight1", 0 - margins.right)
-  .attr("x",0 - (height / 2))
-  .attr("dy", "1em")
-  .style("text-anchor", "middle")
-  .text("*Percipitation line"); 
+      
     
 var parseTime = d3.timeParse("%y");
 
@@ -212,6 +205,12 @@ var drawArray= function(dataArray,xScale,y0, y1, y2, cScale){
                 })
          .attr("stroke", "lightgreen")
         .attr("stroke-width",5)
+    .on("mouseover", function(d, i){
+        d3.select("#hoverbox")
+        .attr("transform", "translate(1355, 10)")
+        //.transition()
+        .text("Temperature; The rate of the rise in temperature; gathered from the Global Historical Climatology Network-Monthly (GHCN-M) data set")})
+        
     d3.select("#graph")
         .append('path') 
         .datum(dataArray)
@@ -222,6 +221,13 @@ var drawArray= function(dataArray,xScale,y0, y1, y2, cScale){
                })
         .attr("stroke", "blue")
         .attr("stroke-width",5)
+    .on("mouseover", function(d, i){
+        d3.select("#hoverbox")
+        .attr("transform", "translate(1355, 10)")
+        //.transition()
+        .text("Sea Rise; data from the US Environmental Protection Agency, shown is the average absolute sea level change: the height of the ocean surface. ")
+        .attr("stroke", "red")
+    })
      d3.select("#graph")
         .append('path') 
         .datum(dataArray)
@@ -232,6 +238,13 @@ var drawArray= function(dataArray,xScale,y0, y1, y2, cScale){
                 })
         .attr("stroke", "green")
          .attr("stroke-width",5)
+    .on("mouseover", function(d, i){
+        d3.select("#hoverbox")
+        .attr("transform", "translate(1355, 10)")
+        //.transition()
+        .text("Percipitation; Global precipitation anomaly compared with the average precipitation; data gathered from National Oceanic & Atmospheric Administration (NOAA)")
+        .attr("stroke", "red")})
+         
     d3.select("#graph")
         .append('path') 
         .datum(dataArray)
@@ -242,4 +255,11 @@ var drawArray= function(dataArray,xScale,y0, y1, y2, cScale){
                 })
          .attr("stroke", "red")
         .attr("stroke-width",5)
+        .on("mouseover", function(d, i){
+        d3.select("#hoverbox")
+        .attr("transform", "translate(1355, 10)")
+        .transition()
+        .text("Glaciers; Data from WGMS (World Glacier Monitoring Service) – 125 glaciers in 25 countries/regions, representing tier 2 and 3 sites. ")
+        
+    })
 }
